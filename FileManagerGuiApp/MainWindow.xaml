@@ -1,0 +1,30 @@
+﻿<Window x:Class="FileManagerGuiApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileManagerGuiApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="2" Text="{Binding SourcePath, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Row="0" Grid.Column="1" Margin="2" Click="SourceButton_Click">Source</Button>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="2" Text="{Binding DestinationPath, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Row="1" Grid.Column="1" Margin="2" Click="DestinationButton_Click">Destination</Button>
+            <Button Grid.Row="2" Grid.Column="1" Margin="2" Click="SortButton_Click">Sort</Button>
+            <ListBox Grid.Row="3" ItemsSource="{Binding Log}" />
+            <Button Grid.Row="3" Grid.Column="1" Margin="2" MaxHeight="20" Click="ClearLogButton_Click">Clear Log</Button>
+        </Grid>
+    </StackPanel>
+</Window>
